@@ -39,6 +39,7 @@ public class Producto {
 		this.detalles = new HashSet<Detalle>();
 	}
 		
+	//Getters & Setter
 	public Producto() {
 		this.detalles = new HashSet<Detalle>();
 	}
