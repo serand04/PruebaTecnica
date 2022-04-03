@@ -15,9 +15,10 @@ import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /*
-   Clase que contiene los atributos y la llave fóranea de la factura
-   Estos atributos seran los mismos en la base de datos
-*/
+ * Clase que contiene los atributos y la llave fóranea de la factura
+ * Estos atributos seran los mismos en la base de datos
+ */
+
 @Entity
 @Table (name = "factura")
 public class Factura {
