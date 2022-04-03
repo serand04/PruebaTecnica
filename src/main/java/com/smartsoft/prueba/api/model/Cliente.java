@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//Clase que contiene los atributos del cliente
-//Estos atributos seran los mismos en la base de datos
+/*
+ * Clase que contiene los atributos del cliente
+ * Estos atributos seran los mismos en la base de datos
+ */
 
 @Entity
 @Table (name = "cliente")
