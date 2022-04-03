@@ -8,22 +8,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/* 
+   Clase que contiene los atributos del detalle
+   Estos atributos seran los mismos en la base de datos
+*/
+
 @Entity
 @Table (name = "detalle")
 public class Detalle {
 	
+	//Variable ID que será generada automaticamente
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int num_detalle;
 	private int id_factura;
+	// Variable que será la llave fóranea
 	@ManyToOne
 	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Producto id_producto;
 	private int cantidad;
 	private int precio;
 	
-	
-	
+	//Constructor de la clase
 	public Detalle(int num_detalle, int id_factura, Producto id_producto, int cantidad, int precio) {
 		this.num_detalle = num_detalle;
 		this.id_factura = id_factura;
@@ -31,7 +37,8 @@ public class Detalle {
 		this.cantidad = cantidad;
 		this.precio = precio;
 	}
-
+	
+	//Getters & Setters
 	public int getNum_detalle() {
 		return num_detalle;
 	}
