@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//Clase que contiene los atributos del cliente
+//Estos atributos seran los mismos en la base de datos
+
 @Entity
 @Table (name = "cliente")
 public class Cliente {
@@ -27,6 +30,7 @@ public class Cliente {
 	@OneToMany(mappedBy = "id_cliente", fetch = FetchType.LAZY)
 	private Set<Factura> facturas;
 	
+	//Constructor de la clase
 	public Cliente(int id_cliente, String nombre, String apellido, String direccion, String fecha_nacimiento, int telefono,
 			String email) {
 		this.id_cliente = id_cliente;
@@ -42,7 +46,8 @@ public class Cliente {
 	public Cliente() {
 		this.facturas = new HashSet<Factura>();
 	}
-
+	
+	//Getters & Setters
 	public int getId_cliente() {
 		return id_cliente;
 	}
