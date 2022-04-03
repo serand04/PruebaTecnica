@@ -18,6 +18,7 @@ import javax.persistence.Table;
 @Table (name = "cliente")
 public class Cliente {
 	
+	//Variable ID que será generada automaticamente
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id_cliente;
@@ -27,6 +28,7 @@ public class Cliente {
 	private String fecha_nacimiento;
 	private int telefono;
 	private String email;
+	// Variable que será la llave fóranea
 	@OneToMany(mappedBy = "id_cliente", fetch = FetchType.LAZY)
 	private Set<Factura> facturas;
 	
