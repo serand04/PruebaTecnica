@@ -18,13 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smartsoft.prueba.api.model.Producto;
 import com.smartsoft.prueba.api.service.ProductoService;
 
+/*
+ * Clase Controller de Producto
+ * Aquí estan los métodos get & post para la API REST
+ */
+
 @RestController
 @RequestMapping("/api/producto/")
 public class ProductoREST {
 	
+	//Atributo que trae la interface de Producto
 	@Autowired
 	private ProductoService productoService;
 	
+	//Método post en el cual se guarda el producto
 	@PostMapping
 	private ResponseEntity<Producto> guardar(@RequestBody Producto producto) {
 		Producto temporal = productoService.create(producto);
@@ -36,17 +43,20 @@ public class ProductoREST {
 		}
 	}
 	
+	//Método get para listar todos los productos
 	@GetMapping
 	private ResponseEntity<List<Producto>> listarProductos() {
 		return ResponseEntity.ok(productoService.getAllProductos());
 	}
 	
+	//Método delete para borrar un producto
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarProductos(@RequestBody Producto producto) {
 		productoService.delete(producto);
 		return ResponseEntity.ok().build();
 	}
 	
+	//Método get para buscar producto por ID
 	@GetMapping(value = "{id}")
 	private ResponseEntity<Optional<Producto>> listarProductosById(@PathVariable ("id") Long id) {
 		return ResponseEntity.ok(productoService.findById(id));
