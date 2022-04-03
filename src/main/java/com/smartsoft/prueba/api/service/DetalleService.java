@@ -17,7 +17,7 @@ import com.smartsoft.prueba.api.repository.DetalleRepository;
 @Service
 public class DetalleService {
 	
-	//Atributo que trae la interface de Cliente
+	//Atributo que trae la interface de Detalle
 	@Autowired
 	private DetalleRepository detalleRepository;
 	
