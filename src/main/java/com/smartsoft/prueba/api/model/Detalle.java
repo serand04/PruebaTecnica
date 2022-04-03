@@ -9,8 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /* 
-   Clase que contiene los atributos del detalle
-   Estos atributos seran los mismos en la base de datos
+ * Clase que contiene los atributos del detalle
+ * Estos atributos seran los mismos en la base de datos
 */
 
 @Entity
