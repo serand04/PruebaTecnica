@@ -18,13 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smartsoft.prueba.api.model.Detalle;
 import com.smartsoft.prueba.api.service.DetalleService;
 
+/*
+ * Clase Controller de detalle
+ * Aquí estan los métodos get & post para la API REST
+ */
+
 @RestController
 @RequestMapping("/api/detalle/")
 public class DetalleREST {
 	
+	//Atributo que trae la interface de Detalle
 	@Autowired
 	private DetalleService detalleService;
 	
+	//Método post en el cual se guarda el detalle
 	@PostMapping
 	private ResponseEntity<Detalle> guardar(@RequestBody Detalle detalle) {
 		Detalle temporal = detalleService.create(detalle);
@@ -36,17 +43,20 @@ public class DetalleREST {
 		}
 	}
 	
+	//Método get para listar todos los detalles
 	@GetMapping
 	private ResponseEntity<List<Detalle>> listarDetalle() {
 		return ResponseEntity.ok(detalleService.getAllDetalle());
 	}
 	
+	//Método delete para borrar un detalle
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarDetalle(@RequestBody Detalle detalle) {
 		detalleService.delete(detalle);
 		return ResponseEntity.ok().build();
 	}
 	
+	//Método get para buscar detalles por ID
 	@GetMapping(value = "{id}")
 	private ResponseEntity<Optional<Detalle>> listarDetalleById(@PathVariable ("id") Long id) {
 		return ResponseEntity.ok(detalleService.findById(id));
