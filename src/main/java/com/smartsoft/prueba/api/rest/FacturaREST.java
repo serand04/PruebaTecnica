@@ -18,13 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smartsoft.prueba.api.model.Factura;
 import com.smartsoft.prueba.api.service.FacturaService;
 
+/*
+ * Clase Controller de Factura
+ * Aquí estan los métodos get & post para la API REST
+ */
+
 @RestController
 @RequestMapping("/api/factura/")
 public class FacturaREST {
 	
+	//Atributo que trae la interface de Factura
 	@Autowired
 	private FacturaService facturaService;
 	
+	//Método post en el cual se guarda la factura
 	@PostMapping
 	private ResponseEntity<Factura> guardar(@RequestBody Factura factura) {
 		Factura temporal = facturaService.create(factura);
@@ -36,17 +43,20 @@ public class FacturaREST {
 		}
 	}
 	
+	//Método get para listar todos las facturas
 	@GetMapping
 	private ResponseEntity<List<Factura>> listarFacturas() {
 		return ResponseEntity.ok(facturaService.getAllFacturas());
 	}
 	
+	//Método delete para borrar una factura
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarFacturas(@RequestBody Factura factura) {
 		facturaService.delete(factura);
 		return ResponseEntity.ok().build();
 	}
 	
+	//Método get para buscar facturas por ID
 	@GetMapping(value = "{id}")
 	private ResponseEntity<Optional<Factura>> listarFacturaById(@PathVariable ("id") Long id) {
 		return ResponseEntity.ok(facturaService.findById(id));
