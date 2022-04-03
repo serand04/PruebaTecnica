@@ -11,19 +11,26 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/*
+ * Clase que contiene los atributos del producto
+ * Estos atributos seran los mismos en la base de datos
+ */
 @Entity
 @Table (name = "producto")
 public class Producto {
 	
+	//Variable ID que será generada automaticamente
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id_producto;
 	private String nombre;
 	private int precio;
 	private int stock;
+	//Variable que será la llave fóranea
 	@OneToMany(mappedBy = "id_producto", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<Detalle> detalles;
 	
+	//Constructor de la clase
 	public Producto(int id_producto, String nombre, int precio, int stock) {
 		this.id_producto = id_producto;
 		this.nombre = nombre;
